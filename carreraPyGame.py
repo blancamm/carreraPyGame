@@ -3,10 +3,12 @@ import pygame, sys, random
 class Runner():
     __customes = ('turtle', 'fish', 'prawn', 'moray', 'octopus')
     
-    def __init__(self, x=0, y=0, custome = 'turtle'):
-        self.custome = pygame.image.load('imagenes/{}.png'.format(custome))
+    def __init__(self, x=0, y=0):
+        indiceCustome = random.randint(0,4)
+         
+        self.custome = pygame.image.load('imagenes/{}.png'.format(self.__customes[indiceCustome]))
         self.position = [x,y] #para que sea mutable
-        self.name = custome
+        self.name = ''
         
     def avanzar(self):
         self.position[0] += random.randint (1,6) #solo se mueve en el eje x
@@ -55,7 +57,7 @@ class Game():
             
             pygame.display.flip()#REFRESCO DE PANTALLA
             
- #para que se vea el resultado y que se cierre cuando el usuario pulse el quit
+ #para que se vea el resultado y que se cierre cuando el usuario pulse el quit, no antes
             
         while True: 
             for event in pygame.event.get():
