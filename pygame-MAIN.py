@@ -1,12 +1,11 @@
 import pygame
 import sys
 
-class Runner():
-    pass
+    
 
 class Game():
     
-    corredores = []
+    runners = []
     
     def __init__(self):
         
